@@ -16,9 +16,15 @@ Vue.use(uView)
 import API from "./api/index.js"
 Vue.prototype.$api = API
 
+// 引入自定义的检查是否登录
+import AUTH from "./utils/checkAuth.js"
+Vue.prototype.$auth = AUTH
+
 //引入自定义的tabBar组件
 import tabBar from "components/tabBar/tabBar.vue"
 Vue.component('tab-bar', tabBar)
+
+
 
 App.mpType = 'app'
 const app = new Vue({

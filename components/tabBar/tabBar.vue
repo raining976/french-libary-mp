@@ -16,7 +16,7 @@
 		data() {
 			return {
 				tabList: [{
-						"text": "首页",
+						"text": "图书",
 						"iconPath": "home",
 						"pagePath": "pages/index/index"
 					},

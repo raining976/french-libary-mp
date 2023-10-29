@@ -1,8 +1,8 @@
-
 <script>
 	export default {
-		onLaunch: function() {
-			// this.login()
+		onLaunch: async function() {
+			this.$auth.checkIsAuthorized()
+
 			console.log('App Launch')
 		},
 		onShow: function() {
@@ -11,19 +11,10 @@
 		onHide: function() {
 			console.log('App Hide')
 		},
-		methods:{
-			login(){
-				uni.login({
-					provider:"weixin",
-					scopes:"auth_base",
-					success:(res)=>{
-						console.log(res)
-					},
-					fail:(err)=>{
-						console.log(err)
-					}
-				})
-			}
+
+		methods: {
+			
+
 		}
 	}
 </script>

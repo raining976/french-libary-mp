@@ -67,10 +67,12 @@
 			},
 		},
 		onLoad() {
+			
 			this.init()
 		},
 
 		methods: {
+			
 			init() {
 				this.bookList = []
 				this.keyword = ""

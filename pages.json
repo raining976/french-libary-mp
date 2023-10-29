@@ -9,35 +9,43 @@
 			"style": {
 				"navigationBarTitleText": "法语图书管理"
 			}
+		}, {
+			"path": "pages/bookInfo/bookInfo",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/help/help",
+			"style": {
+				"navigationBarTitleText": "帮助",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/user/editInfo",
+			"style": {
+				"navigationBarTitleText": "个人信息修改",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/user/stuAuth",
+			"style": {
+				"navigationBarTitleText": "学生信息认证",
+				"enablePullDownRefresh": false
+			}
+
 		}
-	    ,{
-            "path" : "pages/bookInfo/bookInfo",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/user/user",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "我的",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/help/help",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "帮助",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
@@ -45,18 +53,18 @@
 		"backgroundColor": "#F8F8F8"
 	},
 	"uniIdRouter": {},
-	"tabBar": {		
+	"tabBar": {
 		"custom": true,
 		"list": [{
-						"pagePath": "pages/index/index"
-					},
-					{
+				"pagePath": "pages/index/index"
+			},
+			{
 
-						"pagePath": "pages/help/help"
-					},
-					{
-						"pagePath": "pages/user/user"
-					}
-				]
+				"pagePath": "pages/help/help"
+			},
+			{
+				"pagePath": "pages/user/user"
+			}
+		]
 	}
 }
