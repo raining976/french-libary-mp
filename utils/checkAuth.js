@@ -144,6 +144,10 @@ function getLocalUserInfo() {
 	return uni.getStorageSync(STORAGE_KEYS.USERINFO)
 }
 
+function getIsLogin(){
+	return uni.getStorageSync(STORAGE_KEYS.ISAUTHORIZED)
+}
+
 // 检查是否过期
 function checkIsExpired() {
 	return new Date().getTime() > getLocalUserInfo().expiresTime
@@ -151,7 +155,9 @@ function checkIsExpired() {
 const AUTH = {
 	checkIsAuthorized,
 	getLocalUserInfo,
-	updateIsLoginStorage
+	updateIsLoginStorage,
+	updateTokenStorage,
+	getIsLogin
 }
 
 export default AUTH
