@@ -67,16 +67,23 @@
 			},
 		},
 		onLoad() {
-			
+
 			this.init()
 		},
 
 		methods: {
-			
+			async updateUserInfo() {
+				const _id = this.$auth.getLocalUserInfo()._id
+				const _this = this
+				await this.$api.getUserInfoById(_id).then(res => {
+					_this.$auth.updateTokenStorage(res.data)
+				})
+			},
 			init() {
 				this.bookList = []
 				this.keyword = ""
 				this.search(this.keyword)
+				this.updateUserInfo()
 			},
 
 			search(keyword, isLoadMore = false) {
