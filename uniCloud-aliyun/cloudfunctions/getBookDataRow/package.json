@@ -1,0 +1,7 @@
+{
+  "name": "getBookDataRow",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

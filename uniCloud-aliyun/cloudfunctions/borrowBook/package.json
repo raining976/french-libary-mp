@@ -1,0 +1,7 @@
+{
+  "name": "borrowBook",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "stuAuth",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
