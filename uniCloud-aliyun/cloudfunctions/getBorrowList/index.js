@@ -12,27 +12,52 @@ exports.main = async (event, context) => {
 	if (status == -1) {
 		// 全部
 		var $ = db.command.aggregate
-		res = await borrow_list.aggregate().lookup({
+		res = await borrow_list.aggregate()
+			.lookup({
 				from: 'books',
 				localField: 'book_id',
 				foreignField: '_id',
-				as: "bookInfo"
+				as: 'bookInfo'
 			})
-			.replaceRoot({
-				newRoot: $.mergeObjects([$.arrayElemAt(['$bookInfo', 0]), '$$ROOT'])
-			})
+			.unwind('$bookInfo')
 			.project({
-				bookInfo:0,
-			
+				_id:1,
+				book_id: 1,
+				status: 1,
+				borrowTime:1,
+				returnBookTime:1,
+				bookInfo: {
+					BName: '$bookInfo.BName',
+					Author: '$bookInfo.Author'
+					// 添加其他您想选择性返回的 book 字段
+				}
 			})
-			.end()
+			.end();
 	} else {
-		res = await borrow_list.aggregate().lookup({
-			from: 'books',
-			localField: 'book_id',
-			foreignField: '_id',
-			as: "bookInfo"
-		}).end()
+		res = await borrow_list.aggregate()
+			.match({
+				status: status
+			}) // 根据 status 参数进行过滤
+			.lookup({
+				from: 'books',
+				localField: 'book_id',
+				foreignField: '_id',
+				as: 'bookInfo'
+			})
+			.unwind('$bookInfo')
+			.project({
+				_id:1,
+				book_id: 1,
+				status: 1,
+				borrowTime:1,
+				returnBookTime:1,
+				bookInfo: {
+					BName: '$bookInfo.BName',
+					Author: '$bookInfo.Author'
+					// 添加其他您想选择性返回的 book 字段
+				}
+			})
+			.end();
 	}
 	return {
 		code: 1,

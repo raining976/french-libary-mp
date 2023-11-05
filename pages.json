@@ -45,7 +45,16 @@
 			}
 
 		}
-	],
+        ,{
+            "path" : "pages/user/borrowRecord",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "借书记录",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

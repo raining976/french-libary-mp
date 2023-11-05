@@ -37,9 +37,9 @@
 				setItems: [{
 						title: "个人信息修改",
 						icon: "share",
-						isLink: false,
+						isLink: true,
 						disabled: false,
-						url: ""
+						url: "/pages/user/editInfo"
 					},
 					{
 						title: "学生信息认证",
@@ -92,13 +92,13 @@
 				})
 			},
 			clickSetItem(idx) {
-				if (idx == 0) {
-					uni.showToast({
-						title: "未开放",
-						icon: "none"
-					})
-					return
-				}
+				// if (idx == 0) {
+				// 	uni.showToast({
+				// 		title: "未开放",
+				// 		icon: "none"
+				// 	})
+				// 	return
+				// }
 				if (idx != 3) return
 				const _this = this
 				uni.showModal({
@@ -137,5 +137,6 @@
 			margin: 40rpx 0;
 			font-size: 40rpx;
 		}
+
 	}
 </style>
