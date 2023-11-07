@@ -39,7 +39,7 @@
 						icon: "share",
 						isLink: true,
 						disabled: false,
-						url: "/pages/user/editInfo"
+						url: ""
 					},
 					{
 						title: "学生信息认证",
@@ -68,6 +68,9 @@
 			};
 		},
 		onLoad() {
+
+		},
+		onShow() {
 			this.$auth.checkIsAuthorized()
 			this.disabled = !this.$auth.getIsLogin()
 			const _this = this
@@ -75,9 +78,6 @@
 				item.disabled = _this.disabled
 			})
 			this.getUserInfo()
-		},
-		onShow() {
-
 		},
 		methods: {
 			getUserInfo() {
@@ -88,17 +88,17 @@
 					this.userInfo = res.data
 					this.statusIndex = this.userInfo.stuAuthStatus
 					this.setItems[1].statusText = this.statusTexts[this.statusIndex]
-					console.log("个人信息", this.userInfo)
+					// console.log("个人信息", this.userInfo)
 				})
 			},
 			clickSetItem(idx) {
-				// if (idx == 0) {
-				// 	uni.showToast({
-				// 		title: "未开放",
-				// 		icon: "none"
-				// 	})
-				// 	return
-				// }
+				if (idx == 0) {
+					uni.showToast({
+						title: "未开放",
+						icon: "none"
+					})
+					return
+				}
 				if (idx != 3) return
 				const _this = this
 				uni.showModal({
