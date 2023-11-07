@@ -10,7 +10,7 @@
 						height="80rpx" margin="10rpx" @search="search(keyword)"></u-search>
 				</view>
 				<view class="u-page" v-if='bookList.length != 0'>
-					<u-list @scrolltolower="scrolltolower" height='1100rpx' :showScrollbar='true'>
+					<u-list @scrolltolower="scrolltolower" height='1150rpx' :showScrollbar='true'>
 						<u-list-item class="bookBox" v-for="(book, index) in bookList" :key="index">
 							<u-cell size="large" :title="book.BName" :value="'x'+book.BCount"
 								:label="'作者：' + book.Author" @click="goBookInfo(book)"></u-cell>
@@ -155,7 +155,7 @@
 
 <style scoped lang="scss">
 	.content {
-		height: 1180rpx;
+		height: 100%;
 
 		.searchBox {
 			position: fixed;

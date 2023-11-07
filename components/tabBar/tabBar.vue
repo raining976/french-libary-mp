@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<u-tabbar v-model='current' :safeAreaInsetBottom="true" :fixed="true" :placeholder="true" @change="changeBar">
+		<u-tabbar v-model='current' :safeAreaInsetBottom="true" :fixed="true" :placeholder="true" :border="true" @change="changeBar">
 			<u-tabbar-item :text="tab.text" :icon="tab.iconPath" v-for="(tab, index) in tabList"
 				:key="index"></u-tabbar-item>
 		</u-tabbar>

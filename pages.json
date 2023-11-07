@@ -63,6 +63,7 @@
 	},
 	"uniIdRouter": {},
 	"tabBar": {
+		"height": "160rpx",
 		"custom": true,
 		"list": [{
 				"pagePath": "pages/index/index"
