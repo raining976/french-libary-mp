@@ -4,7 +4,7 @@
 		<view class="content">
 			<view class="title">
 						<u--text text="借书指南" size='18' :bold='true'></u--text>
-						<u--text type="error" text="您还没有完成学生认证哦,请前往个人中心认证哦" v-if="isAuth == 1" size='12'></u--text>
+						<u--text type="error" text="您还没有完成学生认证哦,请前往个人中心认证哦" v-if="isAuth != 1" size='12'></u--text>
 					</view>
 					<u-steps direction="column" :current="curStep" dot>
 						<u-steps-item title="学生认证" :desc="stepOneTips[isAuth]" :error="curStep == 0 ? true : false">
@@ -32,12 +32,13 @@
 			return {
 				curStep: 0,
 				isAuth: 0,
-				stepOneTips: ['填写正确的姓名和学号', '您已完成认证,可以去借书啦!'],
+				stepOneTips: ['请前往个人页进行学生认证', '您已完成认证,可以去借书啦!'],
 				notice:"注意:借书前要先进行学生认证哦,前往个人页的学生认证中查看,提交一次就可以啦"
 			}
 		},
 		onShow(){
-			this.isAuth = this.$auth.getLocalUserInfo().stuAuthStatus
+			const isAuth = this.$auth.getLocalUserInfo().stuAuthStatus
+			if(isAuth == 1) this.isAuth = isAuth
 			this.curStep = this.isAuth == 1 ? 3 : 0
 		},
 		methods: {
