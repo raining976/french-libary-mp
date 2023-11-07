@@ -86,6 +86,8 @@
 								url:"/pages/user/user"
 							})
 						},1000)
+					}).catch(err=>{
+						uni.$u.toast('出错啦!')
 					})
 				}).catch(errors => {
 					uni.$u.toast('再检查一下,不要填错了哦')
